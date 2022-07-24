@@ -55,7 +55,6 @@ class ContactDetailsViewModel :NSObject {
                                 forCellReuseIdentifier: TABLE_IDENTIFIER.PhoneCellID)
         view.tableView.dataSource = view
         view.tableView.delegate = view
-        
         view.tableView.tableHeaderView = viewForHeaderInSection()
     }
     
@@ -73,7 +72,6 @@ class ContactDetailsViewModel :NSObject {
         if let _ = view?.selectedContact?.phoneNumber {
             let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 200)
             let headerView = UIView(frame: frame)
-            
             let imageFrame = CGRect(x: (UIScreen.main.bounds.size.width - 134)/2, y: 33, width: 134, height: 134)
             let imageView = UIImageView(frame: imageFrame)
             imageView.layer.cornerRadius = 67
@@ -102,12 +100,12 @@ class ContactDetailsViewModel :NSObject {
         if let _ = view?.selectedContact?.phoneNumber {
             let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40)
             let headerView = UIView(frame: frame)
-            headerView.backgroundColor = UIColor.systemGray
+            headerView.backgroundColor = UIColor.darkGray
             
             let label = UILabel(frame: CGRect(x: 10, y: 8, width: 200, height: 20))
             label.textColor = UIColor.white
             label.text = "Phone Number"
-            label.font = UIFont.systemFont(ofSize: 12)
+            label.font = UIFont.systemFont(ofSize: 18)
             headerView.addSubview(label)
             
             return headerView
