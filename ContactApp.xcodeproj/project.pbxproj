@@ -95,17 +95,6 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		604E3403288C7C9D00AA84CB /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				7D739E2028885CD7003C5C62 /* AddPhoneViewController.swift */,
-				7D5AFFA52888280F00B9F3AF /* ContactDetailsViewController.swift */,
-				7DC34689288606C2000F501A /* AddContactViewController.swift */,
-				604E3407288C818F00AA84CB /* ContactsListViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		604E3404288C7CD600AA84CB /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +108,10 @@
 			isa = PBXGroup;
 			children = (
 				7DC3469F28862442000F501A /* contactCell.swift */,
+				7D739E2028885CD7003C5C62 /* AddPhoneViewController.swift */,
+				7D5AFFA52888280F00B9F3AF /* ContactDetailsViewController.swift */,
+				7DC34689288606C2000F501A /* AddContactViewController.swift */,
+				604E3407288C818F00AA84CB /* ContactsListViewController.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -175,7 +168,6 @@
 				604E3400288C590600AA84CB /* Model */,
 				604E3405288C7CE800AA84CB /* view */,
 				604E3406288C7CF300AA84CB /* viewModel */,
-				604E3403288C7C9D00AA84CB /* Controller */,
 				604E3402288C7C7D00AA84CB /* Resource */,
 				604E340B288C8FF500AA84CB /* Utility */,
 			);

@@ -78,13 +78,22 @@ class ContactDetailsViewModel :NSObject {
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleToFill
             
-            if let photoUrl = view?.selectedContact?.photoURL, photoUrl.count > 5 {
+            if let photoUrl = view?.selectedContact?.photoURL{
                 let url = URL(string: photoUrl)
-                imageView.kf.setImage(with: url)
-            }else{
-                let url1 = URL(string: DEFAULT_DATA.DEFAULT_IMAGE)
-                imageView.kf.setImage(with: url1)
+                url?.isReachable(completion: { result in
+                    if result{
+                        imageView.kf.setImage(with: url)
+                    }else{
+                        let url1 = URL(string: DEFAULT_DATA.DEFAULT_IMAGE)
+                        imageView.kf.setImage(with: url1)
+                    }
+
+                })
+                
             }
+            
+            
+        
             
             headerView.addSubview(imageView)
             
