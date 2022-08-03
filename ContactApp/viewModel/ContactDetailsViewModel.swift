@@ -38,7 +38,9 @@ class ContactDetailsViewModel :NSObject {
     func didSelectRowAt(indexPath:IndexPath){
         if let phoneNumbers = view?.selectedContact?.phoneNumber{
             let phoneNumer = phoneNumbers[indexPath.row]
-            if let phoneCallURL = URL(string: "tel://\(phoneNumer)") {
+            let trimmed = phoneNumer.replacingOccurrences(of: " ", with: "")
+
+            if let phoneCallURL = URL(string: "tel://\(trimmed)") {
 
                let application:UIApplication = UIApplication.shared
                if (application.canOpenURL(phoneCallURL)) {
