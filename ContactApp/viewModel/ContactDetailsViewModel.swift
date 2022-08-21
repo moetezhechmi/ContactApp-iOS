@@ -80,19 +80,14 @@ class ContactDetailsViewModel :NSObject {
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleToFill
             
+            let url1 = URL(string: DEFAULT_DATA.DEFAULT_IMAGE)
+            imageView.kf.setImage(with: url1)
+            
             if let photoUrl = view?.selectedContact?.photoURL{
                 let url = URL(string: photoUrl)
-                url?.isReachable(completion: { result in
-                    if result{
-                        imageView.kf.setImage(with: url)
-                    }else{
-                        let url1 = URL(string: DEFAULT_DATA.DEFAULT_IMAGE)
-                        imageView.kf.setImage(with: url1)
-                    }
-
-                })
-                
+                imageView.kf.setImage(with: url)
             }
+            
             
             
         
@@ -108,7 +103,7 @@ class ContactDetailsViewModel :NSObject {
     
     func headerInSection()->UIView?{
         
-        if let _ = view?.selectedContact?.phoneNumber {
+        if let phoneNumber = view?.selectedContact?.phoneNumber, phoneNumber.count > 0 {
             let frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 40)
             let headerView = UIView(frame: frame)
             headerView.backgroundColor = UIColor.darkGray
@@ -124,6 +119,7 @@ class ContactDetailsViewModel :NSObject {
         }
         
         return nil
+        
     }
     
     
