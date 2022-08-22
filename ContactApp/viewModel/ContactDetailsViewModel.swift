@@ -80,18 +80,12 @@ class ContactDetailsViewModel :NSObject {
             imageView.clipsToBounds = true
             imageView.contentMode = .scaleToFill
             
+            let url1 = URL(string: DEFAULT_DATA.DEFAULT_IMAGE)
+            imageView.kf.setImage(with: url1)
+            
             if let photoUrl = view?.selectedContact?.photoURL{
                 let url = URL(string: photoUrl)
-                url?.isReachable(completion: { result in
-                    if result{
-                        imageView.kf.setImage(with: url)
-                    }else{
-                        let url1 = URL(string: DEFAULT_DATA.DEFAULT_IMAGE)
-                        imageView.kf.setImage(with: url1)
-                    }
-
-                })
-                
+                imageView.kf.setImage(with: url)
             }
             
             

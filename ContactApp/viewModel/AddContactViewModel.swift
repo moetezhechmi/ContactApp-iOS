@@ -59,6 +59,19 @@ class AddContactViewModel:NSObject {
                view.surNameError.text = invalidSurName(surName)
                 view.surNameError.isHidden = !(invalidSurName(surName).count > 1)
             }
+        }else if (textField == view.urlPhotoTF){
+            if let url = textField.text {
+                let urlPhoto:String = String(string.count > 0 ? "\(url)\(string)":url.dropLast())
+              
+                if(urlPhoto.contains("http:") || urlPhoto.contains("https:")){
+                   view.urlError.text = ""
+                     view.urlError.isHidden = true
+                }else{
+                    view.urlError.text = ERR_MESSAGE.PHOTO
+                     view.urlError.isHidden = false
+                    
+                }
+            }
         }
         validateForm()
         return true
@@ -70,7 +83,8 @@ class AddContactViewModel:NSObject {
             if let urlStr = textField.text, let url = URL(string: urlStr){
                 url.isReachable { result in
                     DispatchQueue.main.async {
-                        view.urlError.text = self.invalidPhotoUrl(value: result)
+                        view.urlError.text = ERR_MESSAGE.PHOTO
+                        view.urlError.isHidden = false
                     }
                     
                 }
@@ -134,3 +148,4 @@ class AddContactViewModel:NSObject {
         
     }
 }
+
